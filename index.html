@@ -378,6 +378,7 @@ footer .small {
   </p>
 
   <nav class="section-nav" aria-label="Jump to lyric section">
+    <button data-jump="Intro">Intro</button>
     <button data-jump="Verse 1">Verse 1</button>
     <button data-jump="Pre-Chorus">Pre-Chorus</button>
     <button data-jump="Chorus">Chorus</button>
@@ -394,9 +395,24 @@ footer .small {
 
   <div class="lyrics" id="lyrics">
 
-    <section class="lyric-card" id="verse-1" data-section="Verse 1">
+    <section class="lyric-card" id="song-intro" data-section="Intro">
       <div class="card-head">
         <div class="section-number">01</div>
+        <h2>Intro</h2>
+        <span class="tag">Opening</span>
+      </div>
+      <div class="lyric-lines">Fifteen years of memories,
+Fifteen years of shining dreams,
+Here we are, together as one...
+Parc Lumiere, our home.</div>
+      <div class="card-actions">
+        <button data-next="Verse 1">Next section →</button>
+      </div>
+    </section>
+
+    <section class="lyric-card" id="verse-1" data-section="Verse 1">
+      <div class="card-head">
+        <div class="section-number">02</div>
         <h2>Verse 1</h2>
         <span class="tag">Begin</span>
       </div>
@@ -416,7 +432,7 @@ Together shining like the brightest stars.</div>
 
     <section class="lyric-card" id="pre-chorus" data-section="Pre-Chorus">
       <div class="card-head">
-        <div class="section-number">02</div>
+        <div class="section-number">03</div>
         <h2>Pre-Chorus</h2>
         <span class="tag">Build</span>
       </div>
@@ -431,7 +447,7 @@ This is where we all belong.</div>
 
     <section class="lyric-card" id="chorus-1" data-section="Chorus">
       <div class="card-head">
-        <div class="section-number">03</div>
+        <div class="section-number">04</div>
         <h2>Chorus</h2>
         <span class="tag">Sing together</span>
       </div>
@@ -451,7 +467,7 @@ Forever here, forever one!</div>
 
     <section class="lyric-card" id="verse-2" data-section="Verse 2">
       <div class="card-head">
-        <div class="section-number">04</div>
+        <div class="section-number">05</div>
         <h2>Verse 2</h2>
         <span class="tag">Memories</span>
       </div>
@@ -471,7 +487,7 @@ A brighter path is spread.</div>
 
     <section class="lyric-card" id="chorus-2" data-section="Chorus">
       <div class="card-head">
-        <div class="section-number">05</div>
+        <div class="section-number">06</div>
         <h2>Chorus</h2>
         <span class="tag">Sing together</span>
       </div>
@@ -491,7 +507,7 @@ Forever here, forever one!</div>
 
     <section class="lyric-card" id="bridge" data-section="Bridge">
       <div class="card-head">
-        <div class="section-number">06</div>
+        <div class="section-number">07</div>
         <h2>Bridge</h2>
         <span class="tag">Celebrate</span>
       </div>
@@ -511,7 +527,7 @@ Together we will shine as one!</div>
 
     <section class="lyric-card" id="final-chorus" data-section="Final Chorus">
       <div class="card-head">
-        <div class="section-number">07</div>
+        <div class="section-number">08</div>
         <h2>Final Chorus</h2>
         <span class="tag">All voices</span>
       </div>
@@ -531,7 +547,7 @@ Forever here, forever one!</div>
 
     <section class="lyric-card" id="outro" data-section="Outro">
       <div class="card-head">
-        <div class="section-number">08</div>
+        <div class="section-number">09</div>
         <h2>Outro</h2>
         <span class="tag">Together as one</span>
       </div>
@@ -540,7 +556,7 @@ Our hearts will stay, lighting up our way,
 Fifteen years... and many more to come,
 Together we shine... together as one.</div>
       <div class="card-actions">
-        <button data-next="Verse 1">Back to the beginning ↑</button>
+        <button data-next="Intro">Back to the beginning ↑</button>
       </div>
     </section>
 
@@ -560,6 +576,7 @@ Together we shine... together as one.</div>
 const cards = [...document.querySelectorAll(".lyric-card")];
 
 const jumpMap = {
+  "Intro": "song-intro",
   "Verse 1": "verse-1",
   "Pre-Chorus": "pre-chorus",
   "Chorus": "chorus-1",
@@ -609,7 +626,7 @@ document.getElementById("focusToggle").addEventListener("click", event => {
     focusMode ? "Exit focus mode" : "Focus mode";
 
   if (focusMode) {
-    goToSection("Verse 1");
+    goToSection("Intro");
   } else {
     cards.forEach(card => card.classList.remove("current"));
   }
